@@ -1,6 +1,6 @@
-<img id="circulolaranjapng" src="<?php echo IMG_SISTEM . 'circulolaranja.png'?>" alt="" srcset="">
 
 <section id="sectionLogin">
+    <img id="circulolaranjapng" src="<?php echo IMG_SISTEM . 'circulolaranja.png'?>" alt="" srcset="">
     <header>
         <div style="display: flex; flex-direction:row">
             <h1>Seleto</h1>
@@ -17,7 +17,7 @@
     </div>
     <section>
         <section>
-            <form action="/login" method="post" style="flex-direction: column; display: flex;">
+            <form action="/login" method="POST" style="flex-direction: column; display: flex;">
                 <input class="inputLogin" type="email" name="email" id="" placeholder="Email">
                 <input class="inputLogin" type="password" name="senha" id="" placeholder="Senha">
                 <button type="submit" id="buttonLogin"> Entrar </button>
@@ -27,22 +27,23 @@
             <hr style="width: 100%;">
         </div>
         <section id="criarConta">
-            <button type="button" class="buttonCad">
-                Cadastrar-se
+            <button type="button" class="buttonCad" style="padding: 0;">
+                <a href="/register" class="no-decoration fullscreen align-items-center justify-center flex" style="color: #fff;"> Registrar-se </a>
             </button>
         </section>
-        <section id="outros">
+        <section id="outros" style="position: relative;">
             <button id="button-opcoes">
                 Mais opções
             </button>
         </section>
     </section>
-
 </section>
-
+<div id="div-cactularanja">
+    <img id="cactularanja" src="<?php echo IMG_SISTEM . 'cactularanja.png'?>" alt="" srcset="">
+</div>
 <section id="opcoes">
     <header>
-        <button>
+        <button id='closeTheOptions' name="opcoes">
             <ion-icon name="close-outline"></ion-icon>
         </button>
     </header>
@@ -54,13 +55,13 @@
     </button>
 </section>
 
-<img id="cactularanja" src="<?php echo IMG_SISTEM . 'cactularanja.png'?>" alt="" srcset="">
 
 <style>
 
     hr{
         background-color: rgba(0,0,0,0.1);
         border: 1px solid rgba(0,0,0,0.1);
+        max-width: 30rem;
     }
 
     #circulolaranjapng{
@@ -74,22 +75,29 @@
         filter: brightness(0.9);
     }
 
-    #cactularanja{
-        position:fixed;
+    #div-cactularanja{
+        position: absolute;
+        overflow: hidden;
         bottom: 0;
-        transform:translate(-35%, 35%);
+        left: 0;
+        z-index: -1000;
+    }
+
+    #cactularanja{
+        position:relative;
+        transform:translate(-30%, 30%);
         width: 100%;
         max-width: 10rem;
         z-index: -1000;
     }
 
     #sectionLogin{
-        max-height: 100%;
-        min-height: 100%;
-        position: absolute;
+        max-height: 100vh;
+        min-height: 100vh;
+        position: relative;
         width: 100%;
-        max-width: 35rem;
-        overflow: scroll;
+        overflow-y: scroll;
+        overflow-x: hidden;
         transform: translateX(-50%);
         left: 50%;
         padding: 2rem 1rem 2rem 1rem;
@@ -106,16 +114,17 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        font-family: 'realadult', Times, serif;
+        font-family: 'realadult';
         color: rgba(0,0,0,0.7);
         margin-top: 1rem;
         margin-bottom: 1rem;
-    }
+    }   
 
     #sectionLogin header div {
         display: flex;
         align-items: center;
         justify-content:space-between;
+        max-height: 4rem;
     }
 
     #sectionLogin header div h1{
@@ -128,11 +137,11 @@
         font-size: 1.6rem;
         font-family: 'grotesk';
         color: #e4940a;
-        margin: -3.4rem 0 0 -1rem ;
+        margin: 0rem 0 0 -1rem ;
+        
     }
 
     #sectionLogin header img {
-
         transform: rotateZ(12deg) /* translate(-1.1rem, -1.1rem) */ scale(1);
         filter:brightness(0.1);
         margin: 0px 1rem 0.3rem 1rem;
@@ -142,7 +151,8 @@
 
     #sectionLogin section{
         width: 100%;
-        height: 100%;
+        min-height: 100%;
+        max-height: 100%;
         font-size: 2rem;
         justify-content: center;
         padding: 5px;
@@ -231,6 +241,11 @@
         font-family: 'grotesk';
         font-size: 1.2rem;
         height: 100%;
+        
+    }
+
+    #opcoes button:nth-child(2){
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
     }
 
     #opcoes button:nth-child(3){
@@ -240,6 +255,7 @@
 
     .inputLogin, #buttonLogin{
         width: 100%;
+        max-width: 30rem;
         border-radius: 10px;
         padding: 1.1rem;
         margin: 10px auto 10px auto;
@@ -250,9 +266,13 @@
     }
 
     .inputLogin{
-        height: 3.5rem;
+        height: 4rem;
         font-size: 1.2rem;
         border-radius: 7px;
+    }
+
+    .inputLogin::placeholder{
+        font-family: 'grotesk', 'Times New Roman', Times, serif;
     }
 
     .inputLogin:hover{
@@ -285,6 +305,7 @@
     #criarConta button{
         width: 100%;
         height: 4rem;
+        max-width: 30rem;
         border-radius: 10px;
         border: none;
         background-color: #000;
@@ -306,6 +327,21 @@
     }
     #criarConta :nth-child(1) img:hover {
         background: none;
+    }
+
+
+    @media screen and (max-width: 500px){
+        #sectionLogin{
+            overflow-x: hidden;
+        }
+
+        #sectionLogin header div h1{
+            font-size: 7rem;
+        }
+        
+        #sectionLogin header div h2{
+            font-size: 1.3rem;
+        }
     }
 
 </style>

@@ -74,8 +74,26 @@ button{
     background-color: var(--cinza);
 }
 
-.align-items-center{
+.no-decoration{
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.center{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.flex{
     display: flex;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.align-items-center{
     align-items: center;
 }
 
@@ -88,6 +106,18 @@ button{
 }
 
 .justify-center{
-    display: flex;
     justify-content: center;
+}
+
+.fullscreen{
+    width: 100%;
+    height: 100%;
+}
+
+.fullwidth{
+    width: 100%;
+}
+
+.absolute{
+    position: absolute;
 }

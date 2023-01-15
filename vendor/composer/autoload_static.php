@@ -13,7 +13,7 @@ class ComposerStaticInit8ded149761c0fa11ab4ba04abec62628
         '2edd053cd0c5145738a4dc1b215a9ee0' => __DIR__ . '/../..' . '/app/helpers/redirect.php',
         'b78ed1efeac9e3bf3e4630f767b99c53' => __DIR__ . '/../..' . '/app/helpers/valideSession.php',
         'eb8956b6c103d2b5656c8581f5f2a792' => __DIR__ . '/../..' . '/app/database/connect.php',
-        '4c79936c1bdd242b5f42ee4dffbe4015' => __DIR__ . '/../..' . '/app/database/fetch.php',
+        '530403f33174851f1adc193b331da188' => __DIR__ . '/../..' . '/app/database/queries.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -34,6 +34,7 @@ class ComposerStaticInit8ded149761c0fa11ab4ba04abec62628
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'app\\controllers\\Home' => __DIR__ . '/../..' . '/app/controllers/Home.php',
         'app\\controllers\\Login' => __DIR__ . '/../..' . '/app/controllers/Login.php',
+        'app\\controllers\\Register' => __DIR__ . '/../..' . '/app/controllers/Register.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

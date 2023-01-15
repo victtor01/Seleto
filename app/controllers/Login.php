@@ -21,8 +21,6 @@ class Login
 
         $user = findby(table: 'user', field: 'email', value: "{$email}");
 
-        var_dump($user);
-
         if(! $user)
         {
             return redirect('/login');

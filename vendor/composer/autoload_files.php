@@ -12,5 +12,5 @@ return array(
     '2edd053cd0c5145738a4dc1b215a9ee0' => $baseDir . '/app/helpers/redirect.php',
     'b78ed1efeac9e3bf3e4630f767b99c53' => $baseDir . '/app/helpers/valideSession.php',
     'eb8956b6c103d2b5656c8581f5f2a792' => $baseDir . '/app/database/connect.php',
-    '4c79936c1bdd242b5f42ee4dffbe4015' => $baseDir . '/app/database/fetch.php',
+    '530403f33174851f1adc193b331da188' => $baseDir . '/app/database/queries.php',
 );
