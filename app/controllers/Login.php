@@ -6,6 +6,12 @@ class Login
 {
     public function index()
     {
+        if(validateSession())
+        {
+            return redirect('/');
+            die();
+        }
+
         return [
             'view' => 'login.php',
             'data' => [
@@ -16,10 +22,9 @@ class Login
 
     public function store()
     {
-        $email = filter_input(INPUT_POST, 'email' , FILTER_SANITIZE_EMAIL);
-        $senha = filter_input(INPUT_POST, 'senha' , FILTER_DEFAULT);
-
-        $user = findby(table: 'user', field: 'email', value: "{$email}");
+        $email =  valideFromSqlInjection(filter_input(INPUT_POST, 'email' , FILTER_SANITIZE_EMAIL));
+        $senha =  valideFromSqlInjection(filter_input(INPUT_POST, 'senha' , FILTER_DEFAULT));
+        $user = findby(table: 'users', field: 'email', value: "{$email}");
 
         if(! $user)
         {
@@ -27,6 +32,8 @@ class Login
         }
 
         password_verify($senha, $user['senha']) ?  $_SESSION['user'] = $user : redirect('/login');
+
+        $_SESSION['user'] = $user;
 
         return redirect('/');
     }

@@ -6,6 +6,12 @@ class Home
 {
     public function index()
     {
+        if(! validateSession())
+        {
+            redirect('/login');
+            die();
+        }
+
         return [
             'view' => 'home.php',
             'data' => [

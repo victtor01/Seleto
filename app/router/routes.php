@@ -8,8 +8,9 @@ return [
     ],
     'GET' => 
     [
-        '/login' => 'Login@index',
+        '/' => 'Home@index',
         '/home' => 'Home@index',
+        '/login' => 'Login@index',
         '/register' => 'Register@index'
     ]
 ];

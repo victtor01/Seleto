@@ -6,7 +6,7 @@
             "app/core/controller.php",
             "app/helpers/constants.php",
             "app/helpers/redirect.php",
-            "app/helpers/valideSession.php",
+            "app/helpers/valide.php",
             "app/database/connect.php",
             "app/database/queries.php"
         ],
