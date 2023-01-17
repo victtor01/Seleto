@@ -6,6 +6,7 @@ class Home
 {
     public function index()
     {
+
         if(! validateSession())
         {
             redirect('/login');

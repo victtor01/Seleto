@@ -11,6 +11,9 @@ return [
         '/' => 'Home@index',
         '/home' => 'Home@index',
         '/login' => 'Login@index',
-        '/register' => 'Register@index'
+        '/login/default' => 'Login@withoutLogin',
+        '/register' => 'Register@index',
+        '/user' => 'User@index',
+        '/user/logout' => 'User@destroy'
     ]
 ];

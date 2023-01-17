@@ -48,10 +48,14 @@
         </button>
     </header>
     <button>
-        <img src="<?php echo IMG_SISTEM . 'google.png'?>" width="75" alt="">
+        <a href="">
+            <img src="<?php echo IMG_SISTEM . 'google.png'?>" width="75" alt="">
+        </a>
     </button>
-    <button>
-        Continuar sem login
+    <button type="submit">
+        <a href="/login/default">
+            Continuar sem login
+        </a>     
     </button>
 </section>
 
@@ -245,7 +249,7 @@
     }
 
     #opcoes button:nth-child(2){
-        box-shadow: 0px 0px 20px rgba(0,0,0,0.3);
+        box-shadow: 0px 0px 1px 1px rgba(0,0,0,0.3);
     }
 
     #opcoes button:nth-child(3){

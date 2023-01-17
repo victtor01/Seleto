@@ -17,5 +17,5 @@ function valideFromSqlInjection(&$str)
 
 function validateSession()
 {
-    return isset($_SESSION['user']) ? true : false;
+    return isset($_SESSION['user']) || isset($_SESSION['accesskey']) ? true : false;
 }
