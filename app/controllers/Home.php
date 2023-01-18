@@ -6,17 +6,20 @@ class Home
 {
     public function index()
     {
-
         if(! validateSession())
         {
-            redirect('/login');
+            return redirect('/login');
             die();
         }
+
+        read(table: 'product');
+        $products = execute();
 
         return [
             'view' => 'home.php',
             'data' => [
-                'title' => 'Home'
+                'title' => 'Home',
+                'products' => $products
             ]
         ];
     }

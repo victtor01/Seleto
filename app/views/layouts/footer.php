@@ -10,7 +10,7 @@
         </a>
     </button>
     <button class="">
-        <a href="/">
+        <a href="/pedido">
             <ion-icon name="document-text-outline"></ion-icon>
         </a>  
     </button>

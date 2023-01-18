@@ -2,7 +2,7 @@
     if(isset($_SESSION['accesskey']))
     {
         echo "A requisição a esta Pagina foi negada!";
-        echo "<a href='/user/destroy'> Acesse esse link para sair e fazer o login! </a>";
+        echo "<a href='/user/logout'> Acesse esse link para sair e fazer o login! </a>";
         echo "OBS: Ao clicar sobre o link, caso você não esteja logado, perderá os seus pedidos!";
     }
 ?>

@@ -4,16 +4,19 @@ return [
     'POST' => 
     [
         '/login' => 'Login@store',
-        '/register' => 'Register@store'
+        '/register' => 'Register@store',
+        '/insert/order' => 'Pedido@insert'
     ],
     'GET' => 
     [
         '/' => 'Home@index',
         '/home' => 'Home@index',
         '/login' => 'Login@index',
-        '/login/default' => 'Login@withoutLogin',
         '/register' => 'Register@index',
+        '/pedido' => 'Pedido@index',
         '/user' => 'User@index',
-        '/user/logout' => 'User@destroy'
+
+        '/login/default' => 'Login@withoutLogin',
+        '/user/logout' => 'User@destroy',
     ]
 ];

@@ -1,13 +1,12 @@
-let hidden = true;
+import { showmodal } from "./modules/login";
 
-export function showmodal(modal)
-{
-    var Modal = window.document.getElementById(`${modal}`);
+let button = document.querySelector('#button-opcoes');
+let closeTheOptions = document.getElementById('closeTheOptions');
 
-    Modal.style.cssText = hidden ? 'display: flex; bottom: 0;' : 'bottom: -100%;';
+closeTheOptions.addEventListener('click', () => {
+    showmodal('opcoes');
+})
 
-    hidden = !hidden ? true : false
-
-    return;
-}
-
+button.addEventListener('click', () => {
+    showmodal('opcoes');
+});

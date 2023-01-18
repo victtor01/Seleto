@@ -3,7 +3,6 @@
         <h1>Seleto</h1>
         <img class="noSelect" src="<?php echo IMG_SISTEM . 'chapeuDeChef.png' ?>" width="40" height="50" alt="">
     </header>
-
     <section id="section-cardapio">
         <section id="section-categorias">
             <section style="height: auto; width: auto;" class="flex justify-left align-items-center margin-center">
@@ -60,33 +59,41 @@
 
         <section id="section-produtos" class="fullscreen flex flex-column justify-center align-items-center">
 
-            <div class="div-produto">
-                <div class="foto-produto">
-                <img src="<?php echo IMG_PRODUTOS . "salgados.png"?>" width="100%" height="100%" alt="">
-                </div>
-                <div class="div-produto-informacoes">
-                    <div style="height: 60%; overflow-y:scroll;" class="div-produto-descricao flex flex-column fullscreen flex ">
-                        <h2> Coxinha de frango</h2>
-                        <p> Coxinha de frango com catupiri</p>
-                        <p> Valor: R$ 3,50</p>
+            <?php foreach($products as $product): ?>
+
+                <div class="div-produto">
+                    <div class="foto-produto">
+                    <img src="<?php echo IMG_PRODUTOS . "salgados.png"?>" width="100%" height="100%" alt="">
                     </div>
-                    <div style="height: 40%;" class="div-produto-botao flex justify-left align-items-center">
-                        <button>
-                            <ion-icon name="remove-outline"></ion-icon>
-                        </button>
-                        <input type="number">
-                        <button>
-                            <ion-icon name="add-outline"></ion-icon>
-                        </button>
+                    <div class="div-produto-informacoes">
+                        <div style="height: 60%; overflow-y:scroll;" class="div-produto-descricao flex flex-column fullscreen flex ">
+                            <h2> <?php echo $product['name'] ?> </h2>
+                            <p> <?php echo $product['description'] ?> </p>
+                            <p> Valor: R$<?php echo $product['price'] ?></p>
+                        </div>
+                        <div style="height: 40%;" class="div-produto-botao flex justify-left align-items-center">
+
+                            <button type="button" class="buttonRemoveProduct no-decoration-number" value="<?php echo $product['id'] ?>">
+                                <ion-icon name="remove-outline"></ion-icon>
+                            </button>
+                            <input type="number" min='0' id="input[<?php echo $product['id'] ?>]" value="3" style="text-align:center">
+                            <button class="addButtonProduct" value="<?php echo $product['id'] ?>">
+                                <ion-icon name="add-outline"></ion-icon>
+                            </button>
+
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            <?php endforeach ?>
 
         </section>
     </section>
 </section>
 
 <?php require VIEWS . 'layouts/footer.php'?>
+
+<script type="module" src="/assets/js/product.js"></script>
 
 <style>
     #section-home{

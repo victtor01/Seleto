@@ -26,6 +26,13 @@
     font-size: normal;
 }
 
+@font-face {
+    font-family: 'open';
+    src: url('/assets/fonts/Open.ttf') format('truetype');
+    font-weight: normal;
+    font-size: normal;
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -78,6 +85,10 @@ button{
 .no-decoration{
     text-decoration: none;
     text-decoration-line: none;
+}
+
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
 }
 
 .center{
@@ -164,8 +175,8 @@ button{
 #footer-sidebar button:nth-child(2){
     background-color: #000;
     box-shadow: 0px 4px 15px rgba(37, 37, 37, 0.5);
-    width: 4rem;
-    height: 4rem;
+    width: 3.5rem;
+    height: 3.5rem;
     border-radius: 50%;
     transform: translateY(-30%);
     color: #fff;
@@ -184,7 +195,7 @@ button{
 }
 
 #footer-sidebar button a ion-icon{
-    width: 60%;
-    height: 60%;
+    width:55%;
+    height: 55%;
 }
 

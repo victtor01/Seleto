@@ -24,6 +24,7 @@ class Login
     {
         $email =  filter_input(INPUT_POST, 'email' , FILTER_SANITIZE_EMAIL);
         $senha =  filter_input(INPUT_POST, 'senha' , FILTER_DEFAULT);
+        
         $user = findby(table: 'users', field: 'email', value: "{$email}");
 
         if(! $user)

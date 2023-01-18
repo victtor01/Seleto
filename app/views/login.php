@@ -53,12 +53,13 @@
         </a>
     </button>
     <button type="submit">
-        <a href="/login/default">
+        <a href="/login/default" class="no-decoration" style="color: #fff;">
             Continuar sem login
         </a>     
     </button>
 </section>
 
+<script src="/assets/js/login.js"></script>
 
 <style>
 
@@ -217,7 +218,7 @@
         background-color: #fff;
         overflow-y: scroll;
         border-radius: 12px 12px 0px 0px;
-        box-shadow: 0px -4px 15px rgba(0,0,0,0.3);
+        box-shadow: 0px -4px 15px rgba(0,0,0,0.2);
     }
 
     #opcoes header{
@@ -239,7 +240,7 @@
     }
 
     #opcoes button{
-        margin: 0.5rem 0 0.5rem 0;
+        margin: 0.5rem 0 0.2rem 0;
         background-color: #fff;
         color: 0;
         font-family: 'grotesk';
@@ -255,6 +256,7 @@
     #opcoes button:nth-child(3){
         background-color: #000;
         color: #fff;
+        height: 100%;
     }
 
     .inputLogin, #buttonLogin{
