@@ -77,6 +77,27 @@ button{
     height: 100%;
 }
 
+#message{
+    height: 4rem;
+    background-color: rgb(0, 0, 0);
+    position: fixed;
+    top: -100%;
+    padding: 0.2rem;
+    z-index: 100;
+    transition: 0.5s;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 20rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    font-family: 'grotesk';
+    font-size: 1rem;
+    color: #fff;
+}
+
 #header-title-principal{
     height: 5rem;
     background-color: var(--cinza);
@@ -144,6 +165,78 @@ input[type=number]::-webkit-inner-spin-button {
 
 .select-option{
     transform: scale(1.4) translateY(-0.1rem);
+}
+
+.div-produto .div-produto-informacoes{
+    width: auto;
+    height: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem ;
+}
+
+.div-produto .div-produto-informacoes .div-produto-descricao{
+    font-family: 'grotesk';
+    justify-content: left;
+    text-align: left;
+    font-size: 0.5rem;
+}
+
+.div-produto .div-produto-informacoes .div-produto-descricao h2{
+    font-size: 1.2rem;
+}
+
+.div-produto .div-produto-informacoes .div-produto-descricao p{
+    font-size: 0.7rem;
+}
+
+.div-produto .div-produto-informacoes .div-produto-descricao::-webkit-scrollbar{
+    display: none;
+}
+
+.div-produto .div-produto-informacoes .div-produto-botao input{
+    width: 15%;
+    padding: 0.3rem
+}
+
+.div-produto-botao{
+    padding-top: 10px;
+    
+}
+
+.div-produto .div-produto-informacoes .div-produto-botao button{
+    border: none;
+    color: #fff;
+    background-color: #000;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 2px;
+    font-size: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+}
+
+.div-produto .div-produto-informacoes .div-produto-botao button ion-icon{
+    width: 70%;
+    height: 70%;
+}
+
+.number-max{
+    width: 2rem;
+    height: 2rem;
+    background-color: rgb(113, 38, 5);
+    right: 0;
+    top: 0;
+    position: absolute;
+    color: #f0f2f5;
+    font-weight: 600;
+    transform: translate(35%, -35%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'open';
+    border-radius: 50%;
+    font-size: 0.7rem;
 }
 
 #footer-sidebar{

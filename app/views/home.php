@@ -61,10 +61,18 @@
 
             <?php foreach($products as $product): ?>
 
-                <div class="div-produto">
+                <?php
+                
+                $value = isset($_SESSION['order'][$product['id']]) ? $_SESSION['order'][$product['id']] : 0;
+                
+                ?>
+
+                <div class="div-produto" style="position: relative;">
+
                     <div class="foto-produto">
                     <img src="<?php echo IMG_PRODUTOS . "salgados.png"?>" width="100%" height="100%" alt="">
                     </div>
+
                     <div class="div-produto-informacoes">
                         <div style="height: 60%; overflow-y:scroll;" class="div-produto-descricao flex flex-column fullscreen flex ">
                             <h2> <?php echo $product['name'] ?> </h2>
@@ -76,13 +84,18 @@
                             <button type="button" class="buttonRemoveProduct no-decoration-number" value="<?php echo $product['id'] ?>">
                                 <ion-icon name="remove-outline"></ion-icon>
                             </button>
-                            <input type="number" min='0' id="input[<?php echo $product['id'] ?>]" value="3" style="text-align:center">
+                            <input type="number" min='0' id="input[<?php echo $product['id'] ?>]" value="<?php echo $value ?>" style="text-align:center; font-family: 'grotesk'">
                             <button class="addButtonProduct" value="<?php echo $product['id'] ?>">
                                 <ion-icon name="add-outline"></ion-icon>
                             </button>
 
                         </div>
                     </div>
+
+                    <div class="number-max">
+                        <?php echo $product['quantity'] ?>
+                    </div>
+
                 </div>
 
             <?php endforeach ?>
@@ -196,13 +209,13 @@
     }
 
     #section-produtos .div-produto{
-        height: 7rem;
-        width: auto;
-        margin: 1rem 1rem 1rem 1rem;
+        padding: 0.3rem;
+        height: auto;
+        width: 100%;
         max-width: 30rem;
+        margin: 1rem 1rem 1rem 1rem;
         background-color: #fff;
         border-radius: 0.2rem;
-        overflow: hidden;
         display: flex;
         transition: 0.1s;
         box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.1);
@@ -220,62 +233,8 @@
         background-color: rgba(254, 254, 254, 1);
         width: 50%;
         max-width: 8rem;
-        height: 100%;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes{
-        width: auto;
-        height: 100%;
-        padding: 0.5rem 0.5rem 0.5rem 0.5rem ;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-descricao{
-        font-family: 'grotesk';
-        justify-content: left;
-        text-align: left;
-        font-size: 0.5rem;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-descricao h2{
-        font-size: 1.2rem;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-descricao p{
-        font-size: 0.7rem;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-descricao::-webkit-scrollbar{
-        display: none;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-botao input{
-        border-radius: 1rem;
-        width: 25%;
-        box-shadow: 0px 0px 2px rgba(0,0,0,0.5); 
-        margin: 0 0.2rem 0 0.2rem; 
-        padding: 0.3rem
-    }
-
-    .div-produto-botao{
-        padding-top: 10px;
-        
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-botao button{
-        border: none;
-        color: #fff;
-        background-color: #000;
-        width: 1.5rem;
-        height: 1.5rem;
-        border-radius: 100%;
-        font-size: 100%;
-        justify-content: center;
-        align-items: center;
-    }
-
-    #section-produtos .div-produto .div-produto-informacoes .div-produto-botao button ion-icon{
-        width: 100%;
-        height: 100%;
+        min-width: 8rem;
+        height: auto;
     }
 
     @media screen and (max-width: 440px){

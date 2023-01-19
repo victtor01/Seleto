@@ -1,7 +1,10 @@
-export function insert(route, object)
+import { setflesh } from './flesh.js'
+
+export function insert(route, object, message = false)
 {
     $.post(`${route}`, {object : object}, function(res) { 
-        console.log( JSON.parse( res ));
+        if(message === true) {
+            setflesh( 'message' , 'adicionado ao pedido com sucesso!');
+        }
     })
 }
-

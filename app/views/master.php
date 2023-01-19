@@ -13,9 +13,13 @@
     <title><?php echo $title ?></title>
 </head>
 <body>
+    <div id="message">
+    
+    </div>
     <main id="main">
         <?php require $view ?>
     </main>
+    
     <script type="module" src="/assets/js/app.js"></script>
 </body>
 </html>
