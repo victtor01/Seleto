@@ -4,7 +4,7 @@ namespace app\controllers;
 
 class Home
 {
-    public function index()
+    public function index($search)
     {
         if(! validateSession())
         {
@@ -12,15 +12,23 @@ class Home
             die();
         }
 
-        read(table: 'product');
+        $search = isset($search['category']) ? 
+        $search['category'] : '1';
+
+        read(table: 'product'); 
+        like(field: 'category', value: "{$search}");
         $products = execute();
+
+        $categories = all(table: 'categories');
 
         return [
             'view' => 'home.php',
             'data' => [
                 'title' => 'Home',
-                'products' => $products
+                'products' => $products,
+                'categories' => $categories
             ]
         ];
     }
+
 }

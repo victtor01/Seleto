@@ -19,7 +19,7 @@ class Pedido
         }
 
         $products = isset($_SESSION['order']) ? execute() : [];
-
+        
         return [
             'view' => 'pedido.php',
             'data' =>

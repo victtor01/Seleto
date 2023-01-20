@@ -14,12 +14,12 @@
 
                 <?php $value = isset($_SESSION['order'][$product['id']]) ? $_SESSION['order'][$product['id']] : 0; ?>
                 
-                <div class="div-produto">
+                <div class="div-produto" style="position: relative;">
                     <div class="div-produto-informacoes">
 
                         <div style="height: 60%; overflow-y:scroll;" class="div-produto-descricao flex flex-column fullscreen flex ">
                             <h2> <?php echo $product['name'] ?> </h2>
-                            <p style="font-size: 1rem;"> Valor: R$<?php echo $product['price'] ?></p>
+                            <p style="font-size: 1rem;"> Valor: R$<?php echo str_replace('.', ',', $product['price']) ?></p>
                             <input type="hidden" id="price[<?php echo $product['id'] ?>]" value="<?php echo $product['price'] ?>">
                         </div>
 
@@ -35,6 +35,11 @@
 
                         </div>
                     </div>
+
+                    <div class="number-max" id="number-max[<?php echo $product['id'] ?>]">
+                        <?php echo $product['quantity'] ?>
+                    </div>
+
                 </div>
 
             <?php endforeach ?>
@@ -78,7 +83,7 @@
 </footer>
 
 <script type="module">
-    import { caculePrice } from '/assets/js/modules/input.js'
+    import { caculePrice } from '/assets/js/modules/helpers.js'
     caculePrice();
 </script>
 
