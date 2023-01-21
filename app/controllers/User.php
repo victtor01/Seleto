@@ -4,6 +4,7 @@ namespace app\controllers;
 
 class User
 {
+    
     public function index()
     {
         if(! validateSession())
@@ -28,5 +29,11 @@ class User
         session_destroy();
         redirect('/');
         die();
+    }
+
+    public function valideEmail()
+    {
+        require ROOT . '/app/helpers/email.php';
+        return redirect('/user');
     }
 }

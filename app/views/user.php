@@ -27,6 +27,14 @@
                 </a>
             </div>
             <div>
+                <form action="/user/valide" method="POST" class="fullscreen" style="background-color: #fff;">
+                    <button class="no-decoration fullscreen justify-left" style="background-color: #000 ;border: none; color: #fff; font-size: 1.2rem; font-family: 'grotesk'">
+                        
+                        <span> Confirmar Email </span>
+                    </button>
+                </form>
+            </div>
+            <div>
                 <a href="/user/logout" class="no-decoration">
                     <ion-icon name="exit-outline"></ion-icon>
                     <span> Sair </span>

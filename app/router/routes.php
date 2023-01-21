@@ -7,6 +7,7 @@ return [
         '/register' => 'Register@store',
         '/insert/order' => 'Pedido@insert',
         '/home/search' => 'Home@search',
+        '/user/valide' => 'User@valideEmail',
         '/user/location/remove' => 'Location@remove'
     ],
     'GET' => 

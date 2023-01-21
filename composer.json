@@ -19,5 +19,7 @@
             "name": "José Victor"
         }
     ],
-    "require": {}
+    "require": {
+        "phpmailer/phpmailer": "^6.7"
+    }
 }

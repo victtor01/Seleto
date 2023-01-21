@@ -9,7 +9,11 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <meta name="google-signin-client_id" content="908492610801-9q40ikvib9ft6u111oudmpt3dsrp3rov.apps.googleusercontent.com">
+
     <link rel="stylesheet" href="/assets/css/index.css">
+    
     <title><?php echo $title ?></title>
 </head>
 <body>
