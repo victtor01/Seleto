@@ -1,12 +1,12 @@
-import { showmodal } from "./modules/modals.js";
+import { showmodal } from "./modules/modals.js"
 
-let button = document.querySelector('#button-opcoes');
-let closeTheOptions = document.getElementById('closeTheOptions');
+let button = document.querySelector('#button-opcoes')
+let closeTheOptions = document.getElementById('closeTheOptions')
 
 closeTheOptions.addEventListener('click', () => {
-    showmodal('opcoes');
+    showmodal('opcoes')
 })
 
 button.addEventListener('click', () => {
-    showmodal('opcoes');
+    showmodal('opcoes')
 });

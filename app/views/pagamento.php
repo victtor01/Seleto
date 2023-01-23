@@ -3,12 +3,48 @@
         <h1> Pagamento </h1>
     </header>
     <section>
-        <span> Escolhe a localização: </span>
-        <div> 
-            <select name="location" id="location">
-                <option value="1">Casa</option>
-            </select>
+        <?php if(isset($_SESSION['user'])): ?>
+            <span> Escolher localização: </span>
+            <div> 
+                <select name="location" id="location">
+                    <option value="1">Casa</option>
+                </select>
+            </div>
+        <?php endif ?>
+
+        <span> Forma de Retirada:  </span>
+        <div style="padding: 0.1rem;" class="div-metododeretirada">
+            <label for="" class="metododeretirada" id="metododeretirada[1]">
+                Delivery
+            </label>
+            <label for="" class="metododeretirada" id="metododeretirada[2]">
+                Presencialmente
+            </label>
+            <input type="radio" name="" id="radioMetodoDeRetirada" style="visibility: hidden; display: none">
         </div>
+
+        <script>
+            let metododeretirada1 = document.getElementById('metododeretirada[1]');
+            let metododeretirada2 = document.getElementById('metododeretirada[2]');
+            let radio = document.getElementById('radioMetodoDeRetirada');
+
+            metododeretirada1.addEventListener('click', () => {
+                metododeretirada1.style.cssText = 
+                'background-color: #000; color: #fff';
+
+                metododeretirada2.style.cssText = 
+                'background-color: #fff;  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7); color: #000;'
+            })
+
+            metododeretirada2.addEventListener('click', () => {
+                metododeretirada2.style.cssText = 
+                'background-color: #000; color: #fff';
+
+                metododeretirada1.style.cssText = 
+                'background-color: #fff;  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7); color: #000;'
+            })
+        </script>
+
         <span> Método de pagamento: </span>
         <div id="pay" style=" position: relative">
             <label>
@@ -77,10 +113,17 @@
 
         $.post('/pedido/pagamento', { payMethod : payMethod, location: location}, function(res) { 
             button.innerHTML = "Concluindo...";
-            console.log(res);
+
+            setTimeout(() => {
+                window.location.href = 'http://localhost:8080/home';
+            }, 1000);
+            
         })
         
     });
+
+
+    
 </script>
 
 <style>
@@ -154,16 +197,16 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: end;
         width: 100%;
         max-width: 9rem;
         padding: 0.5rem;
         max-height: 10rem;
-        margin: 2rem 0.5rem 0 0.5rem;
+        margin: 0rem 0.5rem 0 0.5rem;
         box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.05);
         background-color: #fff;
         border-radius: 1rem;
         transition: 0.1s ease-in;
+        cursor: pointer;
     }
 
     #section-pagamento section:last-child{
@@ -203,7 +246,33 @@
     /* background: #333; */
     background-color: rgba(1, 200, 0, 1);
     margin-left: 16px
-}
+    }
+
+    .div-metododeretirada{
+        width: 100%;
+    }
+
+    .metododeretirada{
+        padding: 1rem 1rem 1rem 1rem;
+        box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.7);
+        border-radius: 0.5rem;
+        background-color: #fff;
+        cursor: pointer;
+        font-family: 'open';
+        transition: 0.3s ease-in;
+        width: 100%;
+        margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .metododeretirada:nth-child(1){
+        background-color: #000;
+        color: #fff;
+    }
 
 @media screen and (max-width: 330px){
         #section-pagamento section{
@@ -215,6 +284,9 @@
         #pay label{
             width: 100%;
             max-width: none;
+        }
+        .div-metododeretirada{
+            flex-direction: column;
         }
     }
 

@@ -77,7 +77,7 @@ class Pedido
             return redirect('/');
         }
 
-        if(!isset($_SESSION['user'])){
+        if(isset($_SESSION['accesskey'])){
 
             $name = $_SESSION['address']['name'] ;
             $city = $_SESSION['address']['city'] ;
@@ -88,34 +88,55 @@ class Pedido
 
             $key = $_SESSION['accesskey'];
 
-            create(table: 'address', data: ['name' => "{$name}", 'city' => "{$city}", 'neighborhood' => "{$neighborhood}", 'street' => "{$street}", 'number' => "{$number}", 'reference' => "{$reference}", '`key`' => "{$key}"]);
-            create(table: '`order`', data: ['`key`' => "{$key}", '`status`' => '1']);
-            
-            read(table: '`order`');
-            where(field: '`key`', value: "'{$key}'");
-            andread(field: 'data_order', fields: 'MAX(data_order)', table: '`order`', field1: "`key`", value: "'{$key}'");
-            
-            $order = execute()[0]['id'];
-            $order = intval($order);
-            
-            foreach($_SESSION['order'] as $id => $value)
-            {
-                create(table: 'order_product', data: ['id_order' => "{$order}", 'id_product' => "{$id}", 'quantity' => "{$value}"]);
-                $product = findby(table: 'product', field: 'id', value: "{$id}", fields: 'quantity');
-                $quantity = $product["quantity"];
-                $newvalue = intval($quantity) - intval($value);
-                update(table: 'product', field: 'quantity', value: "{$newvalue}", wherefield: 'id', wherevalue: "{$id}");
-            }
+            # CRIAR E LER ENDEREÇO
 
-            unset($_SESSION['order']);
+                create(table: 'address', data: [
+                    'name' => "{$name}", 
+                    'city' => "{$city}", 
+                    'neighborhood' => "{$neighborhood}", 
+                    'street' => "{$street}", 
+                    'number' => "{$number}", 
+                    'reference' => "{$reference}", 
+                    '`key`' => "{$key}"
+                ]);
+ 
+                read(table: 'address');
+                where(field: '`key`', value: "'{$key}'");
+                andread(field: 'id', fields: 'MAX(id)', table: '`address`', field1: "`key`", value: "'{$key}'");
+
+                $address = execute()[0]['id'];
+                $address = intval($address);
+
+            # CRIAR E LER PEDIDO
+
+                create(table: '`order`', data: ['`key`' => "{$key}", '`status`' => '1', 'address' => "{$address}"]);
+
+                read(table: '`order`');
+                where(field: '`key`', value: "'{$key}'");
+                andread(field: 'data_order', fields: 'MAX(data_order)', table: '`order`', field1: "`key`", value: "'{$key}'");
+                
+                $order = execute()[0]['id'];
+                $order = intval($order);
+        }
+
+        if(isset($_SESSION['user']))
+        {
 
         }
 
-        /* $name;
-        $city;
-        $neighborhood;
-        $street;
-        $number;
-        $reference; */
+        # CRIAR PRODUTOS QUE ENTRARAO NO PEDIDO
+            
+        foreach($_SESSION['order'] as $id => $value)
+        {
+            create(table: 'order_product', data: ['id_order' => "{$order}", 'id_product' => "{$id}", 'quantity' => "{$value}"]);
+            $product = findby(table: 'product', field: 'id', value: "{$id}", fields: 'quantity');
+            $quantity = $product["quantity"];
+            $newvalue = intval($quantity) - intval($value);
+            update(table: 'product', field: 'quantity', value: "{$newvalue}", wherefield: 'id', wherevalue: "{$id}");
+        }
+
+        #LIMPAR TODOS OS PEDIDOS
+
+        unset($_SESSION['order']);
     }
 }

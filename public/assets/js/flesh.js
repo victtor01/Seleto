@@ -1,7 +1,6 @@
 var interval;
 export function setflesh(id, message)
 {
-    
     if(interval)
     {
         return;
