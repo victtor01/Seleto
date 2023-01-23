@@ -9,7 +9,7 @@
 
 <?php if(isset($_SESSION['user'])): ?>
 
-    <section id="section-user">
+    <section id="section-user" class="section-principal">
         <header>
             <h1> Meu perfil </h1>
         </header>
@@ -45,10 +45,6 @@
     
 <?php endif ?>
 
-<?php 
-
-    require VIEWS . 'layouts/footer.php' 
-
-?>
+<?php require VIEWS . 'layouts/footer.php' ?>
 
 <script type="module" src="/assets/js/user.js"></script>

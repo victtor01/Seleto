@@ -21,7 +21,11 @@ for(let but of addButtonProduct)
     but.addEventListener('click', function(){
         max = window.document.getElementById(`number-max[${this.value}]`).innerHTML;
         value = atualizationInput(`${this.value}`, '+' , max);
-        insert('/insert/order' , {id : this.value, quantidade : value}, true);
+
+        let object = {id : this.value, quantidade : value}
+        let message = parseInt(value) >= parseInt(max) ||  object.id == sessionStorage.id ? false : true;
+
+        insert('/insert/order' , object, message);
         caculePrice();
     })
 }

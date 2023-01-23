@@ -15,7 +15,14 @@ function valideFromSqlInjection(&$str)
     return array_filter($str, "protect");
 }
 
-function validateSession()
+function validateSession(string $rote)
 {
-    return isset($_SESSION['user']) || isset($_SESSION['accesskey']) ? true : false;
+    $valide = isset($_SESSION['user']) || isset($_SESSION['accesskey']) ? true : false;
+
+    if(!$valide)
+    {
+        return redirect("{$rote}");
+        die();
+    }
+
 }

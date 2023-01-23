@@ -11,3 +11,5 @@ INNER JOIN users U
 ON U.id = O.id_user
 WHERE O.id_user = 11
 AND O.status = 1 //true
+
+SELECT * FROM `order` WHERE `key` = "63cde7b74be22" and data_order = (SELECT MAX(data_order) FROM `order` WHERE `key` = "63cde7b74be22")

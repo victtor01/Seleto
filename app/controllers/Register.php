@@ -6,11 +6,7 @@ class Register
 {
     public function index()
     {
-        if(validateSession())
-        {
-            return redirect('/');
-            die();
-        }
+        validateSession('/login');
 
         return[
             'view' => 'registro.php',
@@ -22,6 +18,8 @@ class Register
 
     public function store()
     {
+        validateSession('/login');
+
         $name = filter_input(INPUT_POST, 'name' , FILTER_DEFAULT);
         $lastname = filter_input(INPUT_POST, 'lastname' , FILTER_DEFAULT);
         $email = filter_input(INPUT_POST, 'email' , FILTER_SANITIZE_EMAIL);

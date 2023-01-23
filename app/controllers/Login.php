@@ -6,10 +6,9 @@ class Login
 {
     public function index()
     {
-        if(validateSession())
+        if(isset($_SESSION['user']) || isset($_SESSION['accesskey']))
         {
-            return redirect('/');
-            die();
+            redirect('/');
         }
 
         return [
@@ -22,6 +21,8 @@ class Login
 
     public function store()
     {
+        validateSession('/login');
+
         $email =  filter_input(INPUT_POST, 'email' , FILTER_SANITIZE_EMAIL);
         $senha =  filter_input(INPUT_POST, 'senha' , FILTER_DEFAULT);
         

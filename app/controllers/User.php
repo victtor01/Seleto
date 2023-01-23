@@ -7,11 +7,7 @@ class User
     
     public function index()
     {
-        if(! validateSession())
-        {
-            return redirect('/login');
-            die();
-        }
+        validateSession('/login');
 
         $user = isset($_SESSION['user']) ? $_SESSION['user'] : $_SESSION['accesskey'];
 
@@ -33,6 +29,8 @@ class User
 
     public function valideEmail()
     {
+        validateSession('/login');
+        
         require ROOT . '/app/helpers/email.php';
         return redirect('/user');
     }

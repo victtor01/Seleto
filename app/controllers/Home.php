@@ -6,11 +6,7 @@ class Home
 {
     public function index($search)
     {
-        if(! validateSession())
-        {
-            return redirect('/login');
-            die();
-        }
+        validateSession('/login');
 
         $search = isset($search['category']) ? 
         $search['category'] : '1';

@@ -8,7 +8,6 @@ function create(string $table, array $data)
         $values = '"' . implode('","', $data) . '"';
 
         $sql = "INSERT INTO {$table}($fields) VALUES ($values)";
-
         $query = connect()->query($sql);
         
     } 

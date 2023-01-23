@@ -48,8 +48,8 @@ export function caculePrice()
     }
 
     var p = window.document.getElementById('subtotal')
-    p.innerHTML = "R$ " + subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
+    p.innerHTML = subtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });;
 
     var total = window.document.getElementById('total');
-    total.innerHTML = 'R$ ' + (parseFloat(subtotal) + parseFloat(3)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });; 
+    total.innerHTML = (parseFloat(subtotal) + parseFloat(3)).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });; 
 }

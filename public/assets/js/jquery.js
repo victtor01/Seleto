@@ -4,10 +4,7 @@ export function insert(route, object, message = false)
 {
     $.post(`${route}`, {object : object}, function(res) { 
 
-        if(object.id == sessionStorage.id)
-        {
-            return;
-        }
+        sessionStorage.id = object.id;
 
         if(message === false)
         {
@@ -15,7 +12,6 @@ export function insert(route, object, message = false)
         }
 
         setflesh( 'message' , 'adicionado ao pedido com sucesso!');
-        sessionStorage.id = object.id;
         
     })
 }
@@ -23,12 +19,13 @@ export function insert(route, object, message = false)
 export function remove(route, object, message = false)
 {
     $.post(`${route}`, {object: object}, function(res) { 
+
+        console.log(res);
+
         if(message === false)
         {
             return;
         }
-
-        console.log(res);
 
         setflesh('message', 'Localização excluida com sucesso!');
     })

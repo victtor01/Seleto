@@ -1,4 +1,4 @@
-<section id="section-home">
+<section id="section-home" class="section-principal">
     <header id="header-home" class="flex justify-center align-items-center">
         <h1>Seleto</h1>
         <img class="noSelect" src="<?php echo IMG_SISTEM . 'chapeuDeChef.png' ?>" width="40" height="50" alt="">
@@ -11,7 +11,7 @@
                     <div class="categoria">
                         <a class="flex flex-column no-decoration" href="/home/category/<?php echo $category['id'] ?>">
                             <div class="categoria-foto">
-                                <img src="<?php echo IMG_PRODUTOS . "salgados.png"?>" width="100%" height="100%" alt="">
+                                <img src="<?php echo IMG_PRODUTOS . "{$category['photo']}"?>" width="100%" height="100%" alt="">
                             </div>
                             <div class="span-categoria flex justify-center">
                                 <?php echo $category['name'] ?>
@@ -41,49 +41,3 @@
 <?php require VIEWS . 'layouts/footer.php'?>
 
 <script type="module" src="/assets/js/product.js"></script>
-
-<style>
-
-    @media screen and (max-width: 440px){
-        #section-cardapio #section-categorias{
-            justify-content: left;
-            padding: 0;
-        }
-
-        #section-cardapio #section-categorias .categoria{
-            justify-content: left;
-            transform: scale(0.95);
-        }
-
-        #section-cardapio #section-categorias .categoria button span{
-            font-size: 0.8rem;
-            text-align: center;
-        }
-
-        #section-produtos{
-            padding: 1rem 1rem 1rem 1rem;
-        }
-
-        #section-produtos .div-produto{
-            height: auto;
-            width: 100%;
-            padding: 0;
-            flex-direction: column;
-        }
-
-        #section-produtos .div-produto .foto-produto{
-            min-width: 100%;
-            max-width: 100%;
-        }
-
-        #section-produtos .div-produto .div-produto-informacoes .div-produto-descricao h2 {
-            font-size: 1.7rem;
-            margin-bottom: 1rem;
-        }
-
-        #section-produtos .div-produto .div-produto-informacoes .div-produto-descricao p{
-            font-size: 1.1rem;
-        }
-
-    }
-</style>
